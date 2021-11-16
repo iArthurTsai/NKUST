@@ -5,6 +5,6 @@ public class All_Factors_of_20 {
         S = n + " 的所有因數";
         for (int i = 1; i <= n; i++)
             if (n%i == 0)
-                System.out.println(S = (i + "|"));
+                System.out.println(S += (i + "|"));
     }
 }
