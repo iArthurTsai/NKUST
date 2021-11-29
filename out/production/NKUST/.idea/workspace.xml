@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abbb1c68-58dd-42d9-881a-8b145645b119" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Prime_Number.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prime_Number.java" afterDir="false" />
-    </list>
+    <list default="true" id="abbb1c68-58dd-42d9-881a-8b145645b119" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,23 +36,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Application.Prime_Number">
-    <configuration name="Prime_Number" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Prime_Number" />
+  <component name="RunManager" selected="Application.Number21_1_100">
+    <configuration name="All_Factors_of_20" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="All_Factors_of_20" />
       <module name="NKUST" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RemoveDuplicatesFromSortedArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.redquark.tutorials.leetcode.RemoveDuplicatesFromSortedArray" />
+    <configuration name="Number21_1_100" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Number21_1_100" />
       <module name="NKUST" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.redquark.tutorials.leetcode.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Prime_Number" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Prime_Number" />
+      <module name="NKUST" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -79,20 +78,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UnHash" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="UnHash" />
-      <module name="NKUST" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Number21_1_100" />
+        <item itemvalue="Application.All_Factors_of_20" />
         <item itemvalue="Application.Prime_Number" />
         <item itemvalue="Application.Remove_Duplicates_Example_1" />
         <item itemvalue="Application.Remove_Duplicates_Example_1 (1)" />
-        <item itemvalue="Application.RemoveDuplicatesFromSortedArray" />
-        <item itemvalue="Application.UnHash" />
       </list>
     </recent_temporary>
   </component>
