@@ -35,5 +35,35 @@ public class Spider {
         } catch (Exception e) {
             System.out.println("error: " + e);
         }
+        try {
+            Document doc = Jsoup.connect("https://www.ptt.cc/bbs/index.html").get();
+            System.out.println("doc.title(): " + doc.title());
+
+            Elements newsHeadlines = doc.select("#main-container a.board");
+            for (Element headline : newsHeadlines) {
+                System.out.println(headline.attr("title"));
+                System.out.println(headline.absUrl("href"));
+            }
+        } catch (Exception e) {
+            System.out.println("error: " + e);
+        }
+        try {
+            Document doc = Jsoup.connect("https://www.ptt.cc/bbs/Gossiping/M.1638258698.A.66E.html").get();
+            System.out.println("doc.title(): " + doc.title());
+
+            Elements newsHeadlines = doc.select("#span.article-meta-value");
+            for (Element headline : newsHeadlines) {
+                System.out.println(headline.attr("title"));
+                System.out.println(headline.absUrl("href"));
+            }
+        } catch (Exception e) {
+            System.out.println("error: " + e);
+        }
+
+        Document doc = Jsoup.connect("http://www.yiibai.com").get();
+        String keywords = doc.select("meta[name=keywords]").first().attr("content");
+        System.out.println("Meta keyword : " + keywords);
+        String description = doc.select("meta[name=description]").get(0).attr("content");
+        System.out.println("Meta description : " + description);
     }
 }
