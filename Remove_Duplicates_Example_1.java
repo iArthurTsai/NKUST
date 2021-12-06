@@ -28,7 +28,7 @@ public class Remove_Duplicates_Example_1 {
 
         System.out.println("Example_1");
         System.out.println("Input: " + InputExample_1Nums);
-        System.out.println("k = " + Example_1.size());
+        System.out.println("k = " + Example_1.size());//return k = 2
         System.out.println("Output: " + OutputExample_1Nums);
         System.out.println(Example_1);
 
@@ -76,7 +76,7 @@ public class Remove_Duplicates_Example_1 {
 
         System.out.println("Example_2");
         System.out.println("Input: " + InputExample_2Nums);
-        System.out.println("k = " + Example_2.size());
+        System.out.println("k = " + Example_2.size());//return k = 5
         System.out.println("Output: " + OutputExample_2Nums);
 
     }
