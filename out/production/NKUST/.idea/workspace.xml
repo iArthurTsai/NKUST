@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abbb1c68-58dd-42d9-881a-8b145645b119" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jsoup_jsoup_1_14_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Spider/Spider.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Spider/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NKUST/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NKUST/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Remove_Duplicates_Example_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Remove_Duplicates_Example_1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spider/target/classes/Spider.class" beforeDir="false" afterPath="$PROJECT_DIR$/Spider/target/classes/Spider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NKUST/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NKUST/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Remove_Duplicates_Example_1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NKUST/Remove_Duplicates_Example_1.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +33,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/UnHash.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
@@ -54,38 +53,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.Number21_1_100">
-    <configuration name="All_Factors_of_20" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="All_Factors_of_20" />
-      <module name="NKUST" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Remove_Duplicates_Example_1">
     <configuration name="Number21_1_100" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Number21_1_100" />
       <module name="NKUST" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Prime_Number" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Prime_Number" />
-      <module name="NKUST" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Remove_Duplicates_Example_1 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.redquark.tutorials.leetcode.Remove_Duplicates_Example_1" />
-      <module name="NKUST" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.redquark.tutorials.leetcode.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -97,13 +72,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Spider (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Spider" />
+      <module name="Spider" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Spider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.jsoup.examples.Spider" />
+      <module name="Spider" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.jsoup.examples.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Wikipedia" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.jsoup.examples.Wikipedia" />
+      <module name="Spider" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.jsoup.examples.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Number21_1_100" />
-        <item itemvalue="Application.All_Factors_of_20" />
-        <item itemvalue="Application.Prime_Number" />
         <item itemvalue="Application.Remove_Duplicates_Example_1" />
-        <item itemvalue="Application.Remove_Duplicates_Example_1 (1)" />
+        <item itemvalue="Application.Spider (1)" />
+        <item itemvalue="Application.Spider" />
+        <item itemvalue="Application.Wikipedia" />
+        <item itemvalue="Application.Number21_1_100" />
       </list>
     </recent_temporary>
   </component>
@@ -128,9 +136,11 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/NKUST_C110181103$Spider__1_.ic" NAME="Spider (1) Coverage Results" MODIFIED="1638266616791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
