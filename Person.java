@@ -25,5 +25,9 @@ public class Person {
     void attack(Person enemy) {
         int result = this.attack - enemy.attack;
         if(result>0){
+            this.hp= this.hp- result;
+            String getMyName() {return this.name; }
+            void ShoutMyName() {System.out.println("I am" + getMyName().toUppercase()+".");}
+        }
     }
 }
