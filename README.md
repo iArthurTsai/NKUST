@@ -9,4 +9,4 @@
 ### [C110181106 周秉翰](https://github.com/C110181106/NKUST_C110181106)
 #### [![C110181106 周秉翰](https://avatars.githubusercontent.com/u/93661237?v=4)](https://github.com/C110181106/)
 
-### [![老師的公開筆記](https://avatars.githubusercontent.com/u/93661237?v=4)](https://hackmd.io/@johnsonsy)
+### [![老師的公開筆記](https://avatars.githubusercontent.com/u/20806280?v=4](https://hackmd.io/@johnsonsy)
