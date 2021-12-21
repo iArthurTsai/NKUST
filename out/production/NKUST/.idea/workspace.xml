@@ -4,13 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abbb1c68-58dd-42d9-881a-8b145645b119" name="Changes" comment="">
+    <list default="true" id="8133fab0-dc34-48ef-9651-d5a1d9993fe5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Remove_Duplicates_Example_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Remove_Duplicates_Example_1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spider/target/classes/Spider.class" beforeDir="false" afterPath="$PROJECT_DIR$/Spider/target/classes/Spider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spider/Spider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Spider/Spider.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NKUST/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NKUST/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Remove_Duplicates_Example_1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NKUST/Remove_Duplicates_Example_1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/All_Factors_of_20.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Average.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/BMI_Calculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/For_loop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Hello.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/HelloWorld.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Number21_1_100.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Prime_Number.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NKUST/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Remove_Duplicates_Example_1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/UnHash.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Variable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NKUST/While_loop.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,18 +32,8 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/UnHash.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -39,90 +41,37 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectId" id="21JClUk1c2NIhFsf1BKg6D7ZB1y" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="22YjsIlOHkTlmLNIgXyLMze0Xne" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.Remove_Duplicates_Example_1">
-    <configuration name="Number21_1_100" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Number21_1_100" />
+  <component name="RunManager">
+    <configuration name="game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="game" />
       <module name="NKUST" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Remove_Duplicates_Example_1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Remove_Duplicates_Example_1" />
-      <module name="NKUST" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Spider (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Spider" />
-      <module name="Spider" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Spider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.jsoup.examples.Spider" />
-      <module name="Spider" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.jsoup.examples.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Wikipedia" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.jsoup.examples.Wikipedia" />
-      <module name="Spider" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.jsoup.examples.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Remove_Duplicates_Example_1" />
-        <item itemvalue="Application.Spider (1)" />
-        <item itemvalue="Application.Spider" />
-        <item itemvalue="Application.Wikipedia" />
-        <item itemvalue="Application.Number21_1_100" />
+        <item itemvalue="Application.game" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="abbb1c68-58dd-42d9-881a-8b145645b119" name="Changes" comment="" />
-      <created>1637649956966</created>
+      <changelist id="8133fab0-dc34-48ef-9651-d5a1d9993fe5" name="Changes" comment="" />
+      <created>1640021636786</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1637649956966</updated>
+      <updated>1640021636786</updated>
     </task>
     <servers />
   </component>
@@ -136,11 +85,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/NKUST_C110181103$Spider__1_.ic" NAME="Spider (1) Coverage Results" MODIFIED="1638266616791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
