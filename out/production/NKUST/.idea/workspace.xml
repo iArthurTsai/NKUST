@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8133fab0-dc34-48ef-9651-d5a1d9993fe5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spider/Spider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Spider/Spider.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NKUST/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/All_Factors_of_20.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Average.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/BMI_Calculator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/For_loop.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Hello.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/HelloWorld.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Number21_1_100.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Prime_Number.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NKUST/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Remove_Duplicates_Example_1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/UnHash.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/Variable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NKUST/While_loop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
