@@ -68,6 +68,16 @@ public class BookSearcher {
         } catch (Exception e) {
             System.out.println("error: " + e);
         }
+
+        try {
+            Document doc = Jsoup.connect("http://books.gotop.com.tw/download/AEI007000").get();
+            System.out.println("書名: " + doc.title());
+
+
+        } catch (Exception e) {
+            System.out.println("error: " + e);
+        }
+
         //Document doc = Jsoup.connect("http://www.yiibai.com").get();
         //String keywords = doc.select("meta[name=keywords]").first().attr("content");
         //System.out.println("Meta keyword : " + keywords);
