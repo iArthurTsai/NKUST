@@ -26,7 +26,7 @@ public class Spider {
 //            Document doc = Jsoup.connect("https://rule.nkust.edu.tw/").get();
 //            System.out.println("doc.title(): " + doc.title());
 //
-//            Elements newsHeadlines = doc.select("#Dyn_2_2 div.mtitle a");
+//            Elements newsHeadlines = doc.select("#Dyn_2_2 div.mtitle a");//#Dyn_2_2 > div > div > section > div:nth-child(1) > div > div > div > div > a
 //            for (Element headline : newsHeadlines) {
 //                System.out.println(headline.attr("title"));
 //                System.out.println(headline.absUrl("href"));
