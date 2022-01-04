@@ -88,6 +88,12 @@ public class BookSearcher {
             Element ISBN = doc.getElementById("Label3");
             System.out.println("ISBN：" + ISBN.text());
 
+            Elements newsHeadlines = doc.select("#DataList1_ctl00_labList tr a");
+            //#DataList1_ctl00_labList > table > tbody > tr > td:nth-child(1) > div > font > a
+            //#DataList1_ctl00_labList > table > tbody > tr
+            for (Element headline : newsHeadlines) {
+                System.out.println(headline.absUrl("href")); //範例下載網址
+            }
 
         } catch (Exception e) {
             System.out.println("error: " + e);
