@@ -81,6 +81,8 @@ public class BookSearcher {
 
             Elements ISBN = doc.select("#Label3");
             System.out.println("ISBN: " + ISBN);
+            var str = ISBN
+            str = str.replace(/<\/?span[^>]*>/g,"");
 
         } catch (Exception e) {
             System.out.println("error: " + e);
