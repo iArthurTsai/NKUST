@@ -77,12 +77,11 @@ public class BookSearcher {
             System.out.println("書名: " + elements);
 
             Elements writer = doc.select("#Label2");
-            System.out.println("writer: " + writer);
+            System.out.println("作者: " + writer);
 
             Elements ISBN = doc.select("#Label3");
             System.out.println("ISBN: " + ISBN);
-            var str = ISBN
-            str = str.replace(/<\/?span[^>]*>/g,"");
+
 
         } catch (Exception e) {
             System.out.println("error: " + e);
