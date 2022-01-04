@@ -76,7 +76,7 @@ public class BookSearcher {
             //Elements Title = doc.select("#Label1");
             //System.out.println("書名：" + elements);
             Element Title = doc.getElementById("Label1");
-            System.out.println("書名：" + Title.text());
+            System.out.println("書名：" + Title.text()); //https://stackoverflow.com/a/19091653
 
             //Elements Writer = doc.select("#Label2");
             //System.out.println("作者：" + Writer);
