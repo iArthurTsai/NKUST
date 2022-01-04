@@ -71,8 +71,16 @@ public class BookSearcher {
 
         try {
             Document doc = Jsoup.connect("http://books.gotop.com.tw/download/AEI007000").get();
-            System.out.println("書名: " + doc.title());
+            //System.out.println("書名: " + doc.title());
 
+            Elements elements = doc.select("#Label1");
+            System.out.println("書名: " + elements);
+
+            Elements writer = doc.select("#Label2");
+            System.out.println("writer: " + writer);
+
+            Elements ISBN = doc.select("#Label3");
+            System.out.println("ISBN: " + ISBN);
 
         } catch (Exception e) {
             System.out.println("error: " + e);
