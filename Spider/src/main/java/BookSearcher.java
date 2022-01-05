@@ -1,3 +1,4 @@
+import java.util.*;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -69,30 +70,38 @@ public class BookSearcher {
             System.out.println("error: " + e);
         }
 
+        //碁峰圖書附件下載器
         try {
-            Document doc = Jsoup.connect("http://books.gotop.com.tw/download/AEI007000").get();
-            //System.out.println("書名：" + doc.title());
+
+            //https://www.javatpoint.com/how-to-take-string-input-in-java
+            Scanner sc = new Scanner(System.in); //System.in is a standard input stream
+            System.out.print("Enter a Book Number from \"http://books.gotop.com.tw/default.aspx\" : ");
+            String str = sc.next(); //reads string before the space
+            //String url = ("http://books.gotop.com.tw/download/" + str);
+
+            Document doc = Jsoup.connect("http://books.gotop.com.tw/download/" + str).get();
+            //System.out.println(doc.title());
 
             //Elements Title = doc.select("#Label1");
             //System.out.println("書名：" + elements);
-            Element Title = doc.getElementById("Label1");
+            Element Title = doc.getElementById("Label1"); //書名
             System.out.println("書名：" + Title.text()); //https://stackoverflow.com/a/19091653
 
-            //Element Image1 = doc.getElementById("Image1");
-            //System.out.println("Image1：" + Image1);
-            Elements Image1 = doc.select("#Image1"); //#Image1
-            for (Element headline : Image1) {
-                System.out.println(headline.absUrl("src")); //封面網址
+            //Element Image = doc.getElementById("Image1");
+            //System.out.println("封面：" + Image);
+            Elements Image = doc.select("#Image1"); //封面
+            for (Element headline : Image) {
+                System.out.println("封面：" + headline.absUrl("src")); //封面網址
             }
 
             //Elements Writer = doc.select("#Label2");
             //System.out.println("作者：" + Writer);
-            Element Writer = doc.getElementById("Label2");
+            Element Writer = doc.getElementById("Label2"); //作者
             System.out.println("作者：" + Writer.text());
 
             //Elements ISBN = doc.select("#Label3");
             //System.out.println("ISBN：" + ISBN);
-            Element ISBN = doc.getElementById("Label3");
+            Element ISBN = doc.getElementById("Label3"); //ISBN
             System.out.println("ISBN：" + ISBN.text());
 
             Elements newsHeadlines = doc.select("#DataList1_ctl00_labList tr a");
@@ -100,6 +109,8 @@ public class BookSearcher {
             //#DataList1_ctl00_labList > table > tbody > tr
             for (Element headline : newsHeadlines) {
                 System.out.println(headline.absUrl("href")); //範例下載網址
+
+                System.out.print("書號：" + str); //書號
             }
 
         } catch (Exception e) {
