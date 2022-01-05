@@ -92,6 +92,7 @@ public class BookSearcher {
             Elements Image = doc.select("#Image1"); //封面
             for (Element headline : Image) {
                 System.out.println("封面：" + headline.absUrl("src")); //封面網址
+                break;
             }
 
             //Elements Writer = doc.select("#Label2");
@@ -108,10 +109,11 @@ public class BookSearcher {
             //#DataList1_ctl00_labList > table > tbody > tr > td:nth-child(1) > div > font > a
             //#DataList1_ctl00_labList > table > tbody > tr
             for (Element headline : newsHeadlines) {
-                System.out.println(headline.absUrl("href")); //範例下載網址
-
-                System.out.print("書號：" + str); //書號
+                System.out.println("附件：" + headline.absUrl("href")); //範例下載網址
+                break;
             }
+            //System.out.print("書號：" + str); //書號
+            System.out.print("Source : " + "http://books.gotop.com.tw/download/" + str);
 
         } catch (Exception e) {
             System.out.println("error: " + e);
