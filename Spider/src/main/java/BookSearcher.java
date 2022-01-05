@@ -78,6 +78,13 @@ public class BookSearcher {
             Element Title = doc.getElementById("Label1");
             System.out.println("書名：" + Title.text()); //https://stackoverflow.com/a/19091653
 
+            //Element Image1 = doc.getElementById("Image1");
+            //System.out.println("Image1：" + Image1);
+            Elements Image1 = doc.select("#Image1"); //#Image1
+            for (Element headline : Image1) {
+                System.out.println(headline.absUrl("src")); //封面網址
+            }
+
             //Elements Writer = doc.select("#Label2");
             //System.out.println("作者：" + Writer);
             Element Writer = doc.getElementById("Label2");
