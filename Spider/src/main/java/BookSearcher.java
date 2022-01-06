@@ -26,7 +26,7 @@ public class BookSearcher {
             Scanner sc = new Scanner(System.in); //System.in is a standard input stream
             System.out.print("Enter a Book Number from \"http://books.gotop.com.tw/default.aspx\" : ");
             String str = sc.next(); //reads string before the space
-            System.out.print("你輸入的書號：" + str); //書號 for example : ACA026500
+            System.out.print("你輸入的書號：" + str); //書號 for example : ACA026500 AEI007000
 
             Document doc = Jsoup.connect("http://books.gotop.com.tw/download/" + str).get();
             //System.out.println(doc.title());
@@ -48,7 +48,6 @@ public class BookSearcher {
                 try (InputStream inputStream = fetchWebsite.openStream()) {
                     Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
                 }
-
                 break;
             }
 
@@ -68,18 +67,24 @@ public class BookSearcher {
             for (Element headline : newsHeadlines) {
                 System.out.println("附件：" + headline.absUrl("href")); //範例下載網址
 
-                Scanner format = new Scanner(System.in); //System.in is a standard input stream
-                System.out.print("Enter file format : ");
-                String file_format = format.next(); //reads string before the space
-                System.out.print("你輸入的檔案格式：" + file_format + "\n"); //檔案格式
+                String href =(headline.absUrl("href"));
+
+                System.out.println("The string before removing character: " + href); //https://www.delftstack.com/zh-tw/howto/java/java-remove-character-from-string/#%E5%9C%A8-java-%E4%B8%AD%E4%BD%BF%E7%94%A8-replace-%E5%87%BD%E5%BC%8F%E5%BE%9E%E5%AD%97%E4%B8%B2%E4%B8%AD%E5%88%AA%E9%99%A4%E5%AD%97%E5%85%83
+                String file_name = href.replace("http://dlcenter.gotop.com.tw/SampleFiles/" + str + "/download/", "");
+                System.out.println("The string after removing character: " + file_name);
+
+                //Scanner format = new Scanner(System.in); //System.in is a standard input stream
+                //System.out.print("Enter file format : ");
+                //String file_format = format.next(); //reads string before the space
+                //System.out.print("你輸入的檔案格式：" + file_format + "\n"); //檔案格式
+                System.out.print("Downloading..." + "\n");
 
                 URL fetchWebsite = new URL(headline.absUrl("href"));
 
-                Path path = Paths.get("附件." + file_format);
+                Path path = Paths.get(file_name);// + "." + file_format
                 try (InputStream inputStream = fetchWebsite.openStream()) {
                     Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
                 }
-
                 break;
             }
             String Source = ("http://books.gotop.com.tw/download/" + str); //下載來源網址
