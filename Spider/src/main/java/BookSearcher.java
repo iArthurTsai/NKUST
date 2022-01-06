@@ -77,7 +77,7 @@ public class BookSearcher {
             Scanner sc = new Scanner(System.in); //System.in is a standard input stream
             System.out.print("Enter a Book Number from \"http://books.gotop.com.tw/default.aspx\" : ");
             String str = sc.next(); //reads string before the space
-            //String url = ("http://books.gotop.com.tw/download/" + str);
+            System.out.print("你輸入的書號：" + str); //書號
 
             Document doc = Jsoup.connect("http://books.gotop.com.tw/download/" + str).get();
             //System.out.println(doc.title());
@@ -85,7 +85,7 @@ public class BookSearcher {
             //Elements Title = doc.select("#Label1");
             //System.out.println("書名：" + elements);
             Element Title = doc.getElementById("Label1"); //書名
-            System.out.println("書名：" + Title.text()); //https://stackoverflow.com/a/19091653
+            System.out.println("\n書名：" + Title.text()); //https://stackoverflow.com/a/19091653
 
             //Element Image = doc.getElementById("Image1");
             //System.out.println("封面：" + Image);
@@ -112,11 +112,12 @@ public class BookSearcher {
                 System.out.println("附件：" + headline.absUrl("href")); //範例下載網址
                 break;
             }
-            //System.out.print("書號：" + str); //書號
-            System.out.print("Source : " + "http://books.gotop.com.tw/download/" + str);
+            String Source = ("http://books.gotop.com.tw/download/" + str); //下載來源網址
+            System.out.print("Source : " + Source);
 
         } catch (Exception e) {
-            System.out.println("error: " + e);
+            //System.out.println("error: " + e);
+            System.out.println("無附件或書號有誤");
         }
 
         //Document doc = Jsoup.connect("http://www.yiibai.com").get();
