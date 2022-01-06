@@ -6,6 +6,13 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
 
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+
 /**
  * A simple example, used on the jsoup website.
  */
@@ -29,9 +36,10 @@ public class BookSearcher {
             System.out.println(doc.title());
             //Elements items = doc.getElementsByClass("col-sm-9 col-xs-12 title");//從doc中選擇col-sm-9 col-xs-12 title裡面
 
-            Elements newsHeadlines = doc.select("#bookModal div.modal-header div");//col-sm-9 col-xs-12 title
+            Elements newsHeadlines = doc.select("#bookModal");//col-sm-9 col-xs-12 title
             for (Element headline : newsHeadlines) {
-                System.out.println(headline.attr("class"));
+                Elements items = doc.getElementsByClass("modal-title");//從doc中選擇modal-content裡面
+                System.out.println("\n書名：" + items.text());
                 System.out.println(headline.absUrl("href"));
             }
         } catch (Exception e) {
@@ -40,30 +48,37 @@ public class BookSearcher {
         try {
             Document doc = Jsoup.connect("https://lib.ebookservice.tw/ks/#book/0c2ce1f1-b4c7-43a6-a1c3-1eab6bc6a919").get();
             System.out.println(doc.title());
-            Elements items = doc.getElementsByClass("modal-content");//從doc中選擇modal-content裡面
+            Elements library = doc.select("#bookModal"); //封面
+            for (Element headline : library) {
+                Elements items = doc.getElementsByClass("modal-title");//從doc中選擇modal-content裡面
+                System.out.println("\n書名：" + items.text()); //https://stackoverflow.com/a/19091653
+                System.out.println(headline.absUrl("src")); //封面網址
+                break;
+            }
 
 
 
-            for (Element item1 : items) {//在modal-content裡面抓出modal-title
-                String num = item1.getElementsByClass("board-name").get(0).text();
-                String title = item1.getElementsByClass("board-title").get(0).text();
-                System.out.println(item1.getElementsByClass("modal-title"));
-                Document doc1 = Jsoup.connect("https://lib.ebookservice.tw/ks/#book/0c2ce1f1-b4c7-43a6-a1c3-1eab6bc6a919").get();//從board-name中選擇的素材與網頁組合並進入
 
-                Elements newsHeadlines = doc1.select("#bookModal div.modal-content div.modal-header");
+            //for (Element item1 : items) {//在modal-content裡面抓出modal-title
+            //    String num = item1.getElementsByClass("board-name").get(0).text();
+            //    String title = item1.getElementsByClass("board-title").get(0).text();
+            //    System.out.println(item1.getElementsByClass("modal-title"));
+            //    Document doc1 = Jsoup.connect("https://lib.ebookservice.tw/ks/#book/0c2ce1f1-b4c7-43a6-a1c3-1eab6bc6a919").get();//從board-name中選擇的素材與網頁組合並進入
 
-                for (Element headline : newsHeadlines) {
-                    Elements items1 = doc1.getElementsByClass("modal-header");//從doc1中選擇modal-header
-                    for(Element item2 : items1){
-                        String num2 = item2.getElementsByClass("modal-title").get(0).text();//在class底下選擇第三個span(第一個留言的位置)
-                        System.out.println("Comment:" + num2);
-                        break;
-                    }
-                    break;
-                }
+            //    Elements newsHeadlines = doc1.select("#bookModal div.modal-content div.modal-header");
+
+            //    for (Element headline : newsHeadlines) {
+            //        Elements items1 = doc1.getElementsByClass("modal-header");//從doc1中選擇modal-header
+            //        for(Element item2 : items1){
+            //            String num2 = item2.getElementsByClass("modal-title").get(0).text();//在class底下選擇第三個span(第一個留言的位置)
+            //           System.out.println("Comment:" + num2);
+            //            break;
+            //        }
+            //        break;
+            //    }
                 //break;
 //                System.out.print("\n");
-            }
+            //}
             //break;
             //}
         } catch (Exception e) {
@@ -77,7 +92,7 @@ public class BookSearcher {
             Scanner sc = new Scanner(System.in); //System.in is a standard input stream
             System.out.print("Enter a Book Number from \"http://books.gotop.com.tw/default.aspx\" : ");
             String str = sc.next(); //reads string before the space
-            System.out.print("你輸入的書號：" + str); //書號
+            System.out.print("你輸入的書號：" + str); //書號 for example : ACA026500
 
             Document doc = Jsoup.connect("http://books.gotop.com.tw/download/" + str).get();
             //System.out.println(doc.title());
@@ -92,6 +107,13 @@ public class BookSearcher {
             Elements Image = doc.select("#Image1"); //封面
             for (Element headline : Image) {
                 System.out.println("封面：" + headline.absUrl("src")); //封面網址
+
+                URL fetchWebsite = new URL(headline.absUrl("src"));
+                Path path = Paths.get("封面.jpg");
+                try (InputStream inputStream = fetchWebsite.openStream()) {
+                    Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
+                }
+
                 break;
             }
 
@@ -110,6 +132,21 @@ public class BookSearcher {
             //#DataList1_ctl00_labList > table > tbody > tr
             for (Element headline : newsHeadlines) {
                 System.out.println("附件：" + headline.absUrl("href")); //範例下載網址
+
+                Scanner format = new Scanner(System.in); //System.in is a standard input stream
+                System.out.print("Enter file format : ");
+                String file_format = format.next(); //reads string before the space
+                System.out.print("你輸入的檔案格式：" + file_format + "\n"); //檔案格式
+
+                
+
+                URL fetchWebsite = new URL(headline.absUrl("href"));
+
+                Path path = Paths.get("附件." + file_format);
+                try (InputStream inputStream = fetchWebsite.openStream()) {
+                    Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
+                }
+
                 break;
             }
             String Source = ("http://books.gotop.com.tw/download/" + str); //下載來源網址
@@ -119,6 +156,7 @@ public class BookSearcher {
             //System.out.println("error: " + e);
             System.out.println("無附件或書號有誤");
         }
+
 
         //Document doc = Jsoup.connect("http://www.yiibai.com").get();
         //String keywords = doc.select("meta[name=keywords]").first().attr("content");
