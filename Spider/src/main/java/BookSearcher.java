@@ -26,7 +26,7 @@ public class BookSearcher {
             Scanner sc = new Scanner(System.in); //System.in is a standard input stream
             System.out.print("Enter a Book Number from \"http://books.gotop.com.tw/default.aspx\" : ");
             String str = sc.next(); //reads string before the space
-            System.out.print("你輸入的書號：" + str); //書號 for example : ACA026500 AEI007000
+            System.out.print("你輸入的書號：" + str); //書號 for example : AEI005900 AEI005931 AEI006600 AEI007000
 
             Document doc = Jsoup.connect("http://books.gotop.com.tw/download/" + str).get();
             //System.out.println(doc.title());
@@ -98,7 +98,7 @@ public class BookSearcher {
         }
         catch (Exception e) {
             //System.out.println("error: " + e);
-            System.out.println("書號有誤或無附件或不支援的檔案格式");
+            System.out.println("書號有誤或無附件或檔案名有中文名");
         }
     }
 }
