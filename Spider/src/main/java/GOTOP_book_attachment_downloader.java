@@ -56,6 +56,7 @@ public class GOTOP_book_attachment_downloader {
             for (Element attachment : newsHeadlines) {
                 System.out.println("附件下載網址：" + attachment.absUrl("href")); //附件下載網址
 
+                Thread      
                 URL fetchWebsite = new URL(attachment.absUrl("href")); //自動下載附件
 
                 Path path = Paths.get("file_name.pdf");
