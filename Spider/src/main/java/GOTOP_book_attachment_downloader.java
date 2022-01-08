@@ -46,13 +46,13 @@ public class GOTOP_book_attachment_downloader {
 
                 System.out.println("File name : " + front_cover);
 
-                URL fetchWebsite = new URL(headline.absUrl("src")); //自動下載封面
+                //URL fetchWebsite = new URL(headline.absUrl("src")); //自動下載封面
                 //https://www.delftstack.com/zh-tw/howto/java/java-downloading-file/#%E5%9C%A8-java-%E4%B8%AD%E4%BD%BF%E7%94%A8-files-copy-%E4%B8%8B%E8%BC%89%E6%AA%94%E6%A1%88
 
-                Path cover = Paths.get(front_cover); //"front_cover.jpg"
-                try (InputStream inputStream = fetchWebsite.openStream()) {
-                    Files.copy(inputStream, cover, StandardCopyOption.REPLACE_EXISTING);
-                }
+                //Path cover = Paths.get(front_cover); //"front_cover.jpg"
+                //try (InputStream inputStream = fetchWebsite.openStream()) {
+                    //Files.copy(inputStream, cover, StandardCopyOption.REPLACE_EXISTING);
+                //}
                 break;
             }
 
@@ -83,12 +83,12 @@ public class GOTOP_book_attachment_downloader {
                 //System.out.print("你輸入的檔案格式：" + file_format + "\n"); //檔案格式
                 //System.out.print("Downloading..." + "\n");
 
-                URL fetchWebsite = new URL(attachment.absUrl("href")); //自動下載附件
+                //URL fetchWebsite = new URL(attachment.absUrl("href")); //自動下載附件
 
-                Path path = Paths.get(file_name); // + "." + file_format
-                try (InputStream inputStream = fetchWebsite.openStream()) {
-                    Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
-                }
+                //Path path = Paths.get(file_name); // + "." + file_format
+                //try (InputStream inputStream = fetchWebsite.openStream()) {
+                    //Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
+                //}
                 break;
             }
         }
