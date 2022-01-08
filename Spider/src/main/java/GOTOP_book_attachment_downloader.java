@@ -19,12 +19,12 @@ public class GOTOP_book_attachment_downloader {
             Scanner sc = new Scanner(System.in); //System.in is a standard input stream
             System.out.print("Enter a Book Number from \"http://books.gotop.com.tw/default.aspx\" : ");
             String str = sc.next(); //reads string before the space
-            System.out.print("你輸入的書號：" + str); //書號 for example : AEI005900 AEI005931 AEI006600 AEI007000
+            System.out.print("你輸入的書號：" + str); //書號 for example : AEI005900 AEI005931 AEI006600 AEI007000 ACG006200
 
             String Source = ("http://books.gotop.com.tw/download/" + str); //下載來源網址
             System.out.print("\nSource : " + Source);
 
-            Document doc = Jsoup.connect(Source).get();//for example : AEI005900 AEI005931 AEI006600 AEI007000 ACG006200
+            Document doc = Jsoup.connect(Source).get();
             //System.out.println("書名: " + doc.title());
 
             //Elements Title = doc.select("#Label1"); //書名
