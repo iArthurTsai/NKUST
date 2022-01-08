@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URL;
-
+import org.apache.commons.io.FileUtils;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
@@ -30,7 +30,10 @@ public class GOTOP_book_attachment_downloader {
             String Source = ("http://books.gotop.com.tw/download/" + str); //下載來源網址
             System.out.print("\nSource : " + Source);
 
-            Document doc = Jsoup.connect(Source).get();
+            Document doc = Jsoup.connect(Source)
+                    .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36")
+                    .referrer("http://www.google.com")
+                    .get(); //https://stackoverflow.com/questions/6581655/jsoup-useragent-how-to-set-it-right
             //System.out.println("書名: " + doc.title());
 
             //Elements Title = doc.select("#Label1"); //書名
@@ -53,26 +56,26 @@ public class GOTOP_book_attachment_downloader {
                 System.out.println("File name : " + front_cover);
 
 
-                
+
                 //https://stackoverflow.com/questions/28840604/how-to-initiate-a-file-download-in-the-browser-using-java
-                String fileName = front_cover;
-                URL link = new URL(src);
+                //String fileName = front_cover;
+                //URL link = new URL(src);
 
-                InputStream in = new BufferedInputStream(link.openStream());
-                ByteArrayOutputStream out = new ByteArrayOutputStream();
-                byte[] buf = new byte[1024];
-                int n = 0;
-                while (-1!=(n=in.read(buf)))
-                {
-                    out.write(buf, 0, n);
-                }
-                out.close();
-                in.close();
-                byte[] response = out.toByteArray();
+                //InputStream in = new BufferedInputStream(link.openStream());
+                //ByteArrayOutputStream out = new ByteArrayOutputStream();
+                //byte[] buf = new byte[1024];
+                //int n = 0;
+                //while (-1!=(n=in.read(buf)))
+                //{
+                    //out.write(buf, 0, n);
+                //}
+                //out.close();
+                //in.close();
+                //byte[] response = out.toByteArray();
 
-                FileOutputStream fos = new FileOutputStream(fileName);
-                fos.write(response);
-                fos.close();
+                //FileOutputStream fos = new FileOutputStream(fileName);
+                //fos.write(response);
+                //fos.close();
 
                 //URL fetchWebsite = new URL(headline.absUrl("src")); //自動下載封面
                 //https://www.delftstack.com/zh-tw/howto/java/java-downloading-file/#%E5%9C%A8-java-%E4%B8%AD%E4%BD%BF%E7%94%A8-files-copy-%E4%B8%8B%E8%BC%89%E6%AA%94%E6%A1%88
@@ -109,7 +112,7 @@ public class GOTOP_book_attachment_downloader {
                 //System.out.print("Enter file format : ");
                 //String file_format = format.next(); //reads string before the space
                 //System.out.print("你輸入的檔案格式：" + file_format + "\n"); //檔案格式
-                System.out.print("Downloading..." + "\n");
+                //System.out.print("Downloading..." + "\n");
 
 
 
