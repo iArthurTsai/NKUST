@@ -1,4 +1,16 @@
 //碁峰圖書附件下載器
+import org.apache.commons.io.FileUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+
+import java.io.*;
 import java.util.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -30,10 +42,7 @@ public class GOTOP_book_attachment_downloader {
             String Source = ("http://books.gotop.com.tw/download/" + str); //下載來源網址
             System.out.print("\nSource : " + Source);
 
-            Document doc = Jsoup.connect(Source)
-                    .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36")
-                    .referrer("http://www.google.com")
-                    .get(); //https://stackoverflow.com/questions/6581655/jsoup-useragent-how-to-set-it-right
+            Document doc = Jsoup.connect(Source).get();
             //System.out.println("書名: " + doc.title());
 
             //Elements Title = doc.select("#Label1"); //書名
@@ -48,14 +57,27 @@ public class GOTOP_book_attachment_downloader {
             for (Element corver : Image) {
                 System.out.println("封面下載網址：" + corver.absUrl("src")); //封面下載網址
 
-                String src =(corver.absUrl("src"));
+                String src = (corver.absUrl("src"));
 
                 //https://www.delftstack.com/zh-tw/howto/java/java-remove-character-from-string/#%E5%9C%A8-java-%E4%B8%AD%E4%BD%BF%E7%94%A8-replace-%E5%87%BD%E5%BC%8F%E5%BE%9E%E5%AD%97%E4%B8%B2%E4%B8%AD%E5%88%AA%E9%99%A4%E5%AD%97%E5%85%83
                 String front_cover = src.replace("http://www.gotop.com.tw/Waweb2004/WawebImages/bookXL/", "");
 
                 System.out.println("File name : " + front_cover);
 
+                CloseableHttpClient httpClient = HttpClients.createDefault(); //https://stackoverflow.com/questions/35995431/how-to-specify-user-agent-and-referer-in-fileutils-copyurltofileurl-file-meth
 
+                HttpGet Getcorver = new HttpGet(src);
+                Getcorver.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
+                Getcorver.addHeader("Referer", Source);
+
+                    CloseableHttpResponse httpResponse = httpClient.execute(Getcorver);
+                    HttpEntity Entity = httpResponse.getEntity();
+
+                    if (Entity != null) {
+                        FileUtils.copyInputStreamToFile(Entity.getContent(), new File("C:\\Users\\Public\\Downloads\\" + front_cover));
+                    } //C:\Users\Public\Downloads
+
+                Getcorver.releaseConnection();
 
                 //https://stackoverflow.com/questions/28840604/how-to-initiate-a-file-download-in-the-browser-using-java
                 //String fileName = front_cover;
@@ -67,7 +89,7 @@ public class GOTOP_book_attachment_downloader {
                 //int n = 0;
                 //while (-1!=(n=in.read(buf)))
                 //{
-                    //out.write(buf, 0, n);
+                //out.write(buf, 0, n);
                 //}
                 //out.close();
                 //in.close();
@@ -82,7 +104,7 @@ public class GOTOP_book_attachment_downloader {
 
                 //Path cover = Paths.get(front_cover); //"front_cover.jpg"
                 //try (InputStream inputStream = fetchWebsite.openStream()) {
-                    //Files.copy(inputStream, cover, StandardCopyOption.REPLACE_EXISTING);
+                //Files.copy(inputStream, cover, StandardCopyOption.REPLACE_EXISTING);
                 //}
                 break;
             }
@@ -103,7 +125,7 @@ public class GOTOP_book_attachment_downloader {
             for (Element attachment : newsHeadlines) {
                 System.out.println("附件下載網址：" + attachment.absUrl("href")); //附件下載網址
 
-                String href =(attachment.absUrl("href"));
+                String href = (attachment.absUrl("href"));
 
                 String file_name = href.replace("http://dlcenter.gotop.com.tw/SampleFiles/" + str + "/download/", "");
                 System.out.println("File name : " + file_name);
@@ -112,9 +134,22 @@ public class GOTOP_book_attachment_downloader {
                 //System.out.print("Enter file format : ");
                 //String file_format = format.next(); //reads string before the space
                 //System.out.print("你輸入的檔案格式：" + file_format + "\n"); //檔案格式
-                //System.out.print("Downloading..." + "\n");
+                System.out.print("Downloading..." + "\n");
 
+                CloseableHttpClient httpClient = HttpClients.createDefault(); //https://stackoverflow.com/questions/35995431/how-to-specify-user-agent-and-referer-in-fileutils-copyurltofileurl-file-meth
 
+                HttpGet Getattachment = new HttpGet(href);
+                Getattachment.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
+                Getattachment.addHeader("Referer", Source);
+
+                CloseableHttpResponse httpResponse = httpClient.execute(Getattachment);
+                HttpEntity Entity = httpResponse.getEntity();
+
+                if (Entity != null) {
+                    FileUtils.copyInputStreamToFile(Entity.getContent(), new File("C:\\Users\\Public\\Downloads\\" + file_name));
+                } //C:\Users\Public\Downloads
+
+                Getattachment.releaseConnection();
 
                 //String fileName = file_name;
                 //URL link = new URL(href);
@@ -125,7 +160,7 @@ public class GOTOP_book_attachment_downloader {
                 //int n = 0;
                 //while (-1!=(n=in.read(buf)))
                 //{
-                    //out.write(buf, 0, n);
+                //out.write(buf, 0, n);
                 //}
                 //out.close();
                 //in.close();
@@ -139,12 +174,11 @@ public class GOTOP_book_attachment_downloader {
 
                 //Path path = Paths.get(file_name); // + "." + file_format
                 //try (InputStream inputStream = fetchWebsite.openStream()) {
-                    //Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
+                //Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
                 //}
                 break;
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("\nerror: " + e);
             System.out.println("\n書號有誤或無附件或檔案名有中文名");
         }
