@@ -1,12 +1,9 @@
 //碁峰圖書附件下載器
-import java.util.*;
 import java.util.Scanner;
-import java.lang.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import java.io.*;
 import java.io.File;
 import java.io.IOException;
 import org.apache.http.impl.client.HttpClients;
