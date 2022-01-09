@@ -1,46 +1,39 @@
 //碁峰圖書附件下載器
-import org.apache.commons.io.FileUtils;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import java.io.File;
 import java.io.IOException;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.URL;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.HttpEntity;
 import org.apache.commons.io.FileUtils;
-import java.io.InputStream;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+//import java.io.InputStream;
+//import java.net.URL;
+//import java.nio.file.Files;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
+//import java.nio.file.StandardCopyOption;
 
 public class GOTOP_book_attachment_downloader {
     public static void main(String[] args) throws IOException {
         try {
+            String home = System.getProperty("user.home"); //https://www.796t.com/post/MmNtYzI=.html
+
             //https://www.javatpoint.com/how-to-take-string-input-in-java
             Scanner sc = new Scanner(System.in); //System.in is a standard input stream
-            System.out.print("Enter a Book Number from \"http://books.gotop.com.tw/default.aspx\" : ");
+            System.out.print("Enter a Book Id from \"http://books.gotop.com.tw/default.aspx\" : ");
             String str = sc.next(); //reads string before the space
             System.out.print("你輸入的書號：" + str); //書號 for example : AEI005900 AEI005931 AEI006600 AEI007000 ACG006200
 
             String Source = ("http://books.gotop.com.tw/download/" + str); //下載來源網址
-            System.out.print("\nSource : " + Source);
+            System.out.print("\n下載來源網址：" + Source);
+
+            String path = (home + "\\Downloads\\" + str + "\\");
 
             Document doc = Jsoup.connect(Source).get();
             //System.out.println("書名: " + doc.title());
@@ -62,8 +55,9 @@ public class GOTOP_book_attachment_downloader {
                 //https://www.delftstack.com/zh-tw/howto/java/java-remove-character-from-string/#%E5%9C%A8-java-%E4%B8%AD%E4%BD%BF%E7%94%A8-replace-%E5%87%BD%E5%BC%8F%E5%BE%9E%E5%AD%97%E4%B8%B2%E4%B8%AD%E5%88%AA%E9%99%A4%E5%AD%97%E5%85%83
                 String front_cover = src.replace("http://www.gotop.com.tw/Waweb2004/WawebImages/bookXL/", "");
 
-                System.out.println("File name : " + front_cover);
+                System.out.println("封面名稱：" + front_cover);
 
+                //自動下載封面
                 CloseableHttpClient httpClient = HttpClients.createDefault(); //https://stackoverflow.com/questions/35995431/how-to-specify-user-agent-and-referer-in-fileutils-copyurltofileurl-file-meth
 
                 HttpGet Getcorver = new HttpGet(src);
@@ -74,32 +68,12 @@ public class GOTOP_book_attachment_downloader {
                     HttpEntity Entity = httpResponse.getEntity();
 
                     if (Entity != null) {
-                        FileUtils.copyInputStreamToFile(Entity.getContent(), new File("C:\\Users\\Public\\Downloads\\" + front_cover));
-                    } //C:\Users\Public\Downloads
+                        FileUtils.copyInputStreamToFile(Entity.getContent(), new File(path + front_cover));
+                    }
 
                 Getcorver.releaseConnection();
 
-                //https://stackoverflow.com/questions/28840604/how-to-initiate-a-file-download-in-the-browser-using-java
-                //String fileName = front_cover;
-                //URL link = new URL(src);
-
-                //InputStream in = new BufferedInputStream(link.openStream());
-                //ByteArrayOutputStream out = new ByteArrayOutputStream();
-                //byte[] buf = new byte[1024];
-                //int n = 0;
-                //while (-1!=(n=in.read(buf)))
-                //{
-                //out.write(buf, 0, n);
-                //}
-                //out.close();
-                //in.close();
-                //byte[] response = out.toByteArray();
-
-                //FileOutputStream fos = new FileOutputStream(fileName);
-                //fos.write(response);
-                //fos.close();
-
-                //URL fetchWebsite = new URL(headline.absUrl("src")); //自動下載封面
+                //URL fetchWebsite = new URL(corver.absUrl("src")); //自動下載封面
                 //https://www.delftstack.com/zh-tw/howto/java/java-downloading-file/#%E5%9C%A8-java-%E4%B8%AD%E4%BD%BF%E7%94%A8-files-copy-%E4%B8%8B%E8%BC%89%E6%AA%94%E6%A1%88
 
                 //Path cover = Paths.get(front_cover); //"front_cover.jpg"
@@ -128,7 +102,7 @@ public class GOTOP_book_attachment_downloader {
                 String href = (attachment.absUrl("href"));
 
                 String file_name = href.replace("http://dlcenter.gotop.com.tw/SampleFiles/" + str + "/download/", "");
-                System.out.println("File name : " + file_name);
+                System.out.println("附件名稱：" + file_name);
 
                 //Scanner format = new Scanner(System.in); //System.in is a standard input stream
                 //System.out.print("Enter file format : ");
@@ -136,6 +110,7 @@ public class GOTOP_book_attachment_downloader {
                 //System.out.print("你輸入的檔案格式：" + file_format + "\n"); //檔案格式
                 System.out.print("Downloading..." + "\n");
 
+                //自動下載附件
                 CloseableHttpClient httpClient = HttpClients.createDefault(); //https://stackoverflow.com/questions/35995431/how-to-specify-user-agent-and-referer-in-fileutils-copyurltofileurl-file-meth
 
                 HttpGet Getattachment = new HttpGet(href);
@@ -146,29 +121,10 @@ public class GOTOP_book_attachment_downloader {
                 HttpEntity Entity = httpResponse.getEntity();
 
                 if (Entity != null) {
-                    FileUtils.copyInputStreamToFile(Entity.getContent(), new File("C:\\Users\\Public\\Downloads\\" + file_name));
-                } //C:\Users\Public\Downloads
+                    FileUtils.copyInputStreamToFile(Entity.getContent(), new File(path + file_name));
+                }
 
                 Getattachment.releaseConnection();
-
-                //String fileName = file_name;
-                //URL link = new URL(href);
-
-                //InputStream in = new BufferedInputStream(link.openStream());
-                //ByteArrayOutputStream out = new ByteArrayOutputStream();
-                //byte[] buf = new byte[1024];
-                //int n = 0;
-                //while (-1!=(n=in.read(buf)))
-                //{
-                //out.write(buf, 0, n);
-                //}
-                //out.close();
-                //in.close();
-                //byte[] response = out.toByteArray();
-
-                //FileOutputStream fos = new FileOutputStream(fileName);
-                //fos.write(response);
-                //fos.close();
 
                 //URL fetchWebsite = new URL(attachment.absUrl("href")); //自動下載附件
 
@@ -178,9 +134,14 @@ public class GOTOP_book_attachment_downloader {
                 //}
                 break;
             }
+            System.out.println("Downloaded files was saved to " + path);
+            java.awt.Desktop.getDesktop().open(new File(path)); //https://www.itread01.com/p/1434970.html
+            System.out.println("Copyright 2077© GOTOP Information Inc, All Rights Reserved 請勿任意連結、轉載"); //http://books.gotop.com.tw/err.html
+
         } catch (Exception e) {
             System.out.println("\nerror: " + e);
-            System.out.println("\n書號有誤或無附件或檔案名有中文名");
+            System.out.println("無附件或書號有誤");
+            System.out.println("Youre a sussy baka, i see"); //https://www.codegrepper.com/code-examples/whatever/among+us
         }
     }
 }
