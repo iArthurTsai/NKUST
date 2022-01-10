@@ -1,5 +1,7 @@
 //碁峰圖書附件下載器
+import java.net.ProxySelector;
 import java.util.Scanner;
+import java.lang.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -12,6 +14,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.HttpEntity;
 import org.apache.commons.io.FileUtils;
+
 //import java.io.InputStream;
 //import java.net.URL;
 //import java.nio.file.Files;
@@ -142,8 +145,32 @@ public class GOTOP_book_attachment_downloader {
         } catch (Exception e) {
             System.out.println("\nerror: " + e);
             System.out.println("無附件或書號有誤");
-            System.out.println("Youre a sussy baka, i see"); //https://www.codegrepper.com/code-examples/whatever/among+us
+            System.out.println("ඞ Youre a sussy baka, i see"); //https://www.codegrepper.com/code-examples/whatever/among+us
             java.awt.Desktop.getDesktop().open(new File(home + "\\" + "NKUST_C110181103" + "\\" + "SussyBaka.m4a"));
+        }
+
+        try {
+            String dataKey = "s";
+            String dataVal = "http://books.gotop.com.tw/default.aspx";
+            Document ppt = Jsoup.connect("https://ppt.cc/").data(dataKey, dataVal).userAgent("Mozilla").get();
+
+            Elements pptQRcode = ppt.select("body b a"); //封面
+            System.out.println("QRcode：" + pptQRcode);
+            //Element pptQRcode = ppt.getElementById("href");
+
+            //System.out.println("QRcode：" + pptQRcode);
+            for (Element QRcode : pptQRcode) {
+                System.out.println("QRcode：" + QRcode.absUrl("href")); //封面下載網址
+
+                String src = (QRcode.absUrl("href"));
+
+                //https://www.delftstack.com/zh-tw/howto/java/java-remove-character-from-string/#%E5%9C%A8-java-%E4%B8%AD%E4%BD%BF%E7%94%A8-replace-%E5%87%BD%E5%BC%8F%E5%BE%9E%E5%AD%97%E4%B8%B2%E4%B8%AD%E5%88%AA%E9%99%A4%E5%AD%97%E5%85%83
+                String front_cover = src.replace("http://www.gotop.com.tw/Waweb2004/WawebImages/bookXL/", "");
+
+                //System.out.println("封面名稱：" + front_cover);
+            }
+        } catch (Exception e) {
+            System.out.println("\nerror: " + e);
         }
     }
 }
