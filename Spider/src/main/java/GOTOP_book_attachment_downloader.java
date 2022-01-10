@@ -21,8 +21,8 @@ import org.apache.commons.io.FileUtils;
 
 public class GOTOP_book_attachment_downloader {
     public static void main(String[] args) throws IOException {
+        String home = System.getProperty("user.home"); //https://www.796t.com/post/MmNtYzI=.html
         try {
-            String home = System.getProperty("user.home"); //https://www.796t.com/post/MmNtYzI=.html
 
             //https://www.javatpoint.com/how-to-take-string-input-in-java
             Scanner sc = new Scanner(System.in); //System.in is a standard input stream
@@ -143,6 +143,7 @@ public class GOTOP_book_attachment_downloader {
             System.out.println("\nerror: " + e);
             System.out.println("無附件或書號有誤");
             System.out.println("Youre a sussy baka, i see"); //https://www.codegrepper.com/code-examples/whatever/among+us
+            java.awt.Desktop.getDesktop().open(new File(home + "\\" + "NKUST_C110181103" + "\\" + "SussyBakaRemix.m4a"));
         }
     }
 }
