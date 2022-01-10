@@ -143,7 +143,7 @@ public class GOTOP_book_attachment_downloader {
             System.out.println("\nerror: " + e);
             System.out.println("無附件或書號有誤");
             System.out.println("Youre a sussy baka, i see"); //https://www.codegrepper.com/code-examples/whatever/among+us
-            java.awt.Desktop.getDesktop().open(new File(home + "\\" + "NKUST_C110181103" + "\\" + "SussyBakaRemix.m4a"));
+            java.awt.Desktop.getDesktop().open(new File(home + "\\" + "NKUST_C110181103" + "\\" + "SussyBaka.m4a"));
         }
     }
 }
