@@ -25,7 +25,6 @@ public class GOTOP_book_attachment_downloader {
         String home = System.getProperty("user.home"); //https://www.796t.com/post/MmNtYzI=.html
 
         try {
-
             //https://www.javatpoint.com/how-to-take-string-input-in-java
             Scanner sc = new Scanner(System.in); //System.in is a standard input stream
             System.out.print("Enter a Book Id or URL from \"http://books.gotop.com.tw/default.aspx\" : ");
@@ -36,7 +35,8 @@ public class GOTOP_book_attachment_downloader {
             String Source = ("http://books.gotop.com.tw/download/" + str); //下載來源網址
             System.out.print("\n下載來源網址：" + Source);
 
-            String path = (home + "\\Downloads\\" + str + "\\");
+            //String path = (home + "\\Downloads\\" + str + "\\");
+            String path = (home + "/Downloads/" + str + "/"); //for macOS
             File log = new File(path + "log.txt"); //https://www.w3schools.com/java/java_files_create.asp
 
             Document doc = Jsoup.connect(Source).get();
@@ -62,7 +62,7 @@ public class GOTOP_book_attachment_downloader {
                 System.out.println("封面名稱：" + front_cover);
 
                 //自動下載封面
-                CloseableHttpClient httpClient = HttpClients.createDefault(); //https://stackoverflow.com/questions/35995431/how-to-specify-user-agent-and-referer-in-fileutils-copyurltofileurl-file-meth
+                CloseableHttpClient httpClient = HttpClients.createDefault(); //https://stackoverflow.com/a/36104239
 
                 HttpGet Getcorver = new HttpGet(src);
                 Getcorver.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
@@ -87,7 +87,6 @@ public class GOTOP_book_attachment_downloader {
 
                 String CoverToWrite = "\n封面名稱：" + front_cover + "\n封面下載網址：" + corver.absUrl("src");
                 Files.write(Paths.get(path + "log.txt"), CoverToWrite.getBytes()); //https://www.delftstack.com/zh-tw/howto/java/write-a-string-to-a-file-in-java/#%E4%BD%BF%E7%94%A8-java7-%E7%9A%84-files-%E9%A1%9E%E5%B0%87%E5%AD%97%E4%B8%B2%E5%AF%AB%E5%85%A5%E6%AA%94%E6%A1%88
-
 
                 break;
             }
@@ -148,8 +147,13 @@ public class GOTOP_book_attachment_downloader {
                 break;
             }
             System.out.println("Downloaded files was saved to " + path);
-            java.awt.Desktop.getDesktop().open(new File(home + "\\" + "NKUST_C110181103" + "\\" + "Whistle.mp3"));
-            java.awt.Desktop.getDesktop().open(new File(path)); //https://www.itread01.com/p/1434970.html
+
+            //java.awt.Desktop.getDesktop().open(new File(home + "\\" + "NKUST_C110181103" + "\\" + "Whistle.mp3"));
+            //java.awt.Desktop.getDesktop().open(new File(path)); //https://www.itread01.com/p/1434970.html
+
+            //https://discussions.apple.com/thread/2046996
+            java.awt.Desktop.getDesktop().open(new File(home + "/" + "NKUST_C110181103" + "/" + "Whistle.mp3"));// for macOS
+            java.awt.Desktop.getDesktop().open(new File(path));// for macOS
 
             String contentToWrite = "你輸入的書號：" + str + "\n下載來源網址：" + Source + "\n書名：" + Title.text() + "\n作者：" + Writer.text() + "\nISBN：" + ISBN.text() + "\nDownloaded files was saved to " + path;
             Files.write(Paths.get(path + "log.txt"), contentToWrite.getBytes());
@@ -160,8 +164,9 @@ public class GOTOP_book_attachment_downloader {
             System.out.println("\nerror: " + e);
             System.out.println("無附件或書號有誤");
             System.out.println("ඞ Youre a sussy baka, i see"); //https://www.codegrepper.com/code-examples/whatever/among+us
-            java.awt.Desktop.getDesktop().open(new File(home + "\\" + "NKUST_C110181103" + "\\" + "SussyBaka.m4a"));
-            // https://youtu.be/l7yqm4RN7Z4
+            //java.awt.Desktop.getDesktop().open(new File(home + "\\" + "NKUST_C110181103" + "\\" + "SussyBaka.m4a"));// https://youtu.be/l7yqm4RN7Z4
+
+            java.awt.Desktop.getDesktop().open(new File(home + "/" + "NKUST_C110181103" + "/" + "SussyBaka.m4a"));// for macOS
         }
     }
 }
