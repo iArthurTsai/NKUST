@@ -139,6 +139,7 @@ public class GOTOP_book_attachment_downloader {
                 break;
             }
             System.out.println("Downloaded files was saved to " + path);
+            java.awt.Desktop.getDesktop().open(new File(home + "\\" + "NKUST_C110181103" + "\\" + "Whistle.mp3"));
             java.awt.Desktop.getDesktop().open(new File(path)); //https://www.itread01.com/p/1434970.html
             System.out.println("Copyright 2077© GOTOP Information Inc, All Rights Reserved 請勿任意連結、轉載"); //http://books.gotop.com.tw/err.html
 
@@ -147,6 +148,7 @@ public class GOTOP_book_attachment_downloader {
             System.out.println("無附件或書號有誤");
             System.out.println("ඞ Youre a sussy baka, i see"); //https://www.codegrepper.com/code-examples/whatever/among+us
             java.awt.Desktop.getDesktop().open(new File(home + "\\" + "NKUST_C110181103" + "\\" + "SussyBaka.m4a"));
+            // https://youtu.be/l7yqm4RN7Z4
         }
 
         try {
