@@ -1,5 +1,4 @@
 //碁峰圖書附件下載器
-import java.net.ProxySelector;
 import java.util.Scanner;
 import java.lang.*;
 import org.jsoup.Jsoup;
