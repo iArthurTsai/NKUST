@@ -24,21 +24,20 @@ public class GOTOP_book_attachment_downloader {
     public static void main(String[] args) throws IOException {
         String home = System.getProperty("user.home"); //https://www.796t.com/post/MmNtYzI=.html
 
+        //https://www.javatpoint.com/how-to-take-string-input-in-java
+        Scanner sc = new Scanner(System.in); //System.in is a standard input stream
+        System.out.print("Enter a Book Id or URL from \"http://books.gotop.com.tw/default.aspx\" : ");
+        String str = sc.next(); //reads string before the space
+        if (str.contains("http://books.gotop.com.tw/v_")) {str = str.replace("http://books.gotop.com.tw/v_", "");} //https://www.delftstack.com/zh-tw/howto/java/how-to-check-if-a-string-contains-character-in-java/#%E4%BD%BF%E7%94%A8%E5%AD%97%E4%B8%B2-contains-%E6%96%B9%E6%B3%95%E8%88%87-if-else-%E8%AA%9E%E5%8F%A5%E4%B8%80%E8%B5%B7%E4%BD%BF%E7%94%A8
+        System.out.print("你輸入的書號：" + str); //書號 for example : AEI005900 AEI005931 AEI006600 AEI007000 ACG006200
+
+        String Source = ("http://books.gotop.com.tw/download/" + str); //下載來源網址
+        System.out.print("\n下載來源網址：" + Source);
+
+        //String path = (home + "\\Downloads\\" + str + "\\");
+        String path = (home + "/Downloads/" + str + "/"); //for macOS
+
         try {
-            //https://www.javatpoint.com/how-to-take-string-input-in-java
-            Scanner sc = new Scanner(System.in); //System.in is a standard input stream
-            System.out.print("Enter a Book Id or URL from \"http://books.gotop.com.tw/default.aspx\" : ");
-            String str = sc.next(); //reads string before the space
-            if (str.contains("http://books.gotop.com.tw/v_")) {str = str.replace("http://books.gotop.com.tw/v_", "");} //https://www.delftstack.com/zh-tw/howto/java/how-to-check-if-a-string-contains-character-in-java/#%E4%BD%BF%E7%94%A8%E5%AD%97%E4%B8%B2-contains-%E6%96%B9%E6%B3%95%E8%88%87-if-else-%E8%AA%9E%E5%8F%A5%E4%B8%80%E8%B5%B7%E4%BD%BF%E7%94%A8
-            System.out.print("你輸入的書號：" + str); //書號 for example : AEI005900 AEI005931 AEI006600 AEI007000 ACG006200
-
-            String Source = ("http://books.gotop.com.tw/download/" + str); //下載來源網址
-            System.out.print("\n下載來源網址：" + Source);
-
-            //String path = (home + "\\Downloads\\" + str + "\\");
-            String path = (home + "/Downloads/" + str + "/"); //for macOS
-            File log = new File(path + "log.txt"); //https://www.w3schools.com/java/java_files_create.asp
-
             Document doc = Jsoup.connect(Source).get();
             //System.out.println("書名: " + doc.title());
 
@@ -54,7 +53,7 @@ public class GOTOP_book_attachment_downloader {
             for (Element corver : Image) {
                 System.out.println("封面下載網址：" + corver.absUrl("src")); //封面下載網址
 
-                String src = (corver.absUrl("src"));
+                String src = corver.absUrl("src");
 
                 //https://www.delftstack.com/zh-tw/howto/java/java-remove-character-from-string/#%E5%9C%A8-java-%E4%B8%AD%E4%BD%BF%E7%94%A8-replace-%E5%87%BD%E5%BC%8F%E5%BE%9E%E5%AD%97%E4%B8%B2%E4%B8%AD%E5%88%AA%E9%99%A4%E5%AD%97%E5%85%83
                 String front_cover = src.replace("http://www.gotop.com.tw/Waweb2004/WawebImages/bookXL/", "");
@@ -85,8 +84,9 @@ public class GOTOP_book_attachment_downloader {
                 //Files.copy(inputStream, cover, StandardCopyOption.REPLACE_EXISTING);
                 //}
 
-                String CoverToWrite = "\n封面名稱：" + front_cover + "\n封面下載網址：" + corver.absUrl("src");
-                Files.write(Paths.get(path + "log.txt"), CoverToWrite.getBytes()); //https://www.delftstack.com/zh-tw/howto/java/write-a-string-to-a-file-in-java/#%E4%BD%BF%E7%94%A8-java7-%E7%9A%84-files-%E9%A1%9E%E5%B0%87%E5%AD%97%E4%B8%B2%E5%AF%AB%E5%85%A5%E6%AA%94%E6%A1%88
+                File 封面 = new File(path + "封面.txt");
+                String CoverToWrite = "封面名稱：" + front_cover + "\n封面下載網址：" + src;
+                Files.write(Paths.get(path + "封面.txt"), CoverToWrite.getBytes()); //https://www.delftstack.com/zh-tw/howto/java/write-a-string-to-a-file-in-java/#%E4%BD%BF%E7%94%A8-java7-%E7%9A%84-files-%E9%A1%9E%E5%B0%87%E5%AD%97%E4%B8%B2%E5%AF%AB%E5%85%A5%E6%AA%94%E6%A1%88
 
                 break;
             }
@@ -107,7 +107,7 @@ public class GOTOP_book_attachment_downloader {
             for (Element attachment : newsHeadlines) {
                 System.out.println("附件下載網址：" + attachment.absUrl("href")); //附件下載網址
 
-                String href = (attachment.absUrl("href"));
+                String href = attachment.absUrl("href");
 
                 String file_name = href.replace("http://dlcenter.gotop.com.tw/SampleFiles/" + str + "/download/", "");
                 System.out.println("附件名稱：" + file_name);
@@ -141,8 +141,9 @@ public class GOTOP_book_attachment_downloader {
                 //Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
                 //}
 
-                String File_nameToWrite = "\n附件名稱：" + file_name + "\n附件下載網址：" + attachment.absUrl("href");
-                Files.write(Paths.get(path + "log.txt"), File_nameToWrite.getBytes());
+                File 附件 = new File(path + "附件.txt");
+                String File_nameToWrite = "附件名稱：" + file_name + "\n附件下載網址：" + href;
+                Files.write(Paths.get(path + "附件.txt"), File_nameToWrite.getBytes());
 
                 break;
             }
@@ -155,6 +156,7 @@ public class GOTOP_book_attachment_downloader {
             java.awt.Desktop.getDesktop().open(new File(home + "/" + "NKUST_C110181103" + "/" + "Whistle.mp3"));// for macOS
             java.awt.Desktop.getDesktop().open(new File(path));// for macOS
 
+            File log = new File(path + "log.txt"); //https://www.w3schools.com/java/java_files_create.asp
             String contentToWrite = "你輸入的書號：" + str + "\n下載來源網址：" + Source + "\n書名：" + Title.text() + "\n作者：" + Writer.text() + "\nISBN：" + ISBN.text() + "\nDownloaded files was saved to " + path;
             Files.write(Paths.get(path + "log.txt"), contentToWrite.getBytes());
 
