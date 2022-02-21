@@ -64,7 +64,7 @@ public class GOTOP_book_attachment_downloader {
                 CloseableHttpClient httpClient = HttpClients.createDefault(); //https://stackoverflow.com/a/36104239
 
                 HttpGet Getcorver = new HttpGet(src);
-                Getcorver.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
+                Getcorver.addHeader("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"); //http://www.useragentstring.com/ Actually this is my real user agent string
                 Getcorver.addHeader("Referer", Source);
 
                     CloseableHttpResponse httpResponse = httpClient.execute(Getcorver);
@@ -122,7 +122,7 @@ public class GOTOP_book_attachment_downloader {
                 CloseableHttpClient httpClient = HttpClients.createDefault(); //https://stackoverflow.com/questions/35995431/how-to-specify-user-agent-and-referer-in-fileutils-copyurltofileurl-file-meth
 
                 HttpGet Getattachment = new HttpGet(href);
-                Getattachment.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
+                Getattachment.addHeader("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36");
                 Getattachment.addHeader("Referer", Source);
 
                 CloseableHttpResponse httpResponse = httpClient.execute(Getattachment);
