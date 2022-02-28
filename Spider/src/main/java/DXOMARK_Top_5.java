@@ -19,16 +19,6 @@ import java.nio.file.Paths;
 //import java.nio.file.Path;
 //import java.nio.file.StandardCopyOption;
 
-//#slick-slide00 > div.rankingTab > div.rankingCategory > div > div.protocol > span
-//#slick-slide00
-////#slick-slide00 > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(1) > div.deviceName.flex-col.flex-left.flex-grow
-//#slick-slide00 > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(1) > div.deviceName.flex-col.flex-left.flex-grow > h3 > a
-//#slick-slide00 > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(1) > div.deviceName.flex-col.flex-left.flex-grow > h3
-//#slick-slide00 > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(2) > div.deviceName.flex-col.flex-left.flex-grow > h3
-//#slick-slide01 > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(1) > div.deviceName.flex-col.flex-left.flex-grow
-
-//#slick-slide04 > div.rankingTab > div.rankingCategory > div > div.protocol > span
-
 public class DXOMARK_Top_5 {
     public static void main(String[] args) throws IOException {
         String home = System.getProperty("user.home"); //https://www.796t.com/post/MmNtYzI=.html
@@ -43,22 +33,20 @@ public class DXOMARK_Top_5 {
             Document doc = Jsoup.connect(Source).get();
             System.out.println(doc.title());
 
-            //Elements Title = doc.select("h3"); //#sort-camera
-            //String originalTitle = Title.attr("title");
-            //System.out.println("書名：" + Title);
-
-            //Element Title = doc.getElementById("#slick-slide00 > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(1) > div.deviceName.flex-col.flex-left.flex-grow > h3"); //#sort-camera
-            //System.out.println("\n書名：" + Title.text()); //https://stackoverflow.com/a/19091653
-
             Elements rankingList = doc.getElementsByClass("rankingList");//從doc中選擇rankingList裡面
             for (Element Top_5 : rankingList) { //在rankingList裡面抓出title
-                Elements byCamera = doc.getElementsByClass("deviceName flex-col flex-left flex-grow");
-                for (Element Top : byCamera) { //在byCamera裡面抓出title
-                    String Camera = Top.getElementsByTag("h3").get(0).text();
+                Elements devices = doc.getElementsByClass("deviceName flex-col flex-left flex-grow");
+                for (Element Top : devices) { //在devices裡面抓出Device Name
+                    String Camera = Top.getElementsByTag("h3").text();
                     System.out.println(Camera);
+                    Elements newsHeadlines = doc.select("div.rankingTab div.deviceName.flex-col.flex-left.flex-grow h3 a");
+                    for (Element attachment : newsHeadlines) {
+                        //String Camera = Top.getElementsByTag("a").text();
+                        String href = attachment.absUrl("href");
+                        System.out.println("\n" +  "網址：" + attachment.absUrl("href")); //網址
+                    }
                 }
             }
-
             Elements Image = doc.select("#Image1"); //封面
             //System.out.println("封面：" + Image);
             //Element Image = doc.getElementById("Image1");
@@ -84,7 +72,7 @@ public class DXOMARK_Top_5 {
             Element ISBN = doc.getElementById("Label3"); //ISBN
             System.out.println("ISBN：" + ISBN.text());
 
-            System.out.println("Copyright 2077© GOTOP Information Inc, All Rights Reserved 請勿任意連結、轉載"); //http://books.gotop.com.tw/err.html
+            System.out.println("Copyright © 2008-2022 DXOMARK. All rights reserved");
 
         } catch (Exception e) {
             System.out.println("\nerror: " + e);
