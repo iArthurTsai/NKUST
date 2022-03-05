@@ -19,6 +19,12 @@ import java.nio.file.Paths;
 //import java.nio.file.Path;
 //import java.nio.file.StandardCopyOption;
 
+//#row-304546280 > div > div > div > div > div > div > div:nth-child(4)
+//#row-1965244831 > div > div > div > div > div > div > div:nth-child(4) > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(1) > div.deviceName.flex-col.flex-left.flex-grow > h3 //Camera 1st
+//#row-1965244831 > div > div > div > div > div > div > div:nth-child(4) > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(1) > div.deviceScore.flex-col.flex-right //144 Score
+//#row-1965244831 > div > div > div > div > div > div > div:nth-child(8) > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(1) > div.deviceName.flex-col.flex-left.flex-grow > h3 //Selfie 1st
+//#slick-slide00 > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(1) > div.deviceName.flex-col.flex-left.flex-grow > h3
+
 public class DXOMARK_Top_5 {
     public static void main(String[] args) throws IOException {
         String home = System.getProperty("user.home"); //https://www.796t.com/post/MmNtYzI=.html
@@ -33,8 +39,8 @@ public class DXOMARK_Top_5 {
             Document doc = Jsoup.connect(Source).get();
             System.out.println(doc.title());
 
-            Elements rankingList = doc.getElementsByClass("rankingList");//從doc中選擇rankingList裡面
-            for (Element Top_5 : rankingList) { //在rankingList裡面抓出title
+            Elements rankingTab = doc.getElementsByClass("rankingTab");//從doc中選擇rankingTab裡面
+            for (Element Top_5 : rankingTab) { //在rankingTab裡面抓出title
                 Elements devices = doc.getElementsByClass("deviceName flex-col flex-left flex-grow");
                 for (Element Top : devices) { //在devices裡面抓出Device Name
                     String Camera = Top.getElementsByTag("h3").text();
@@ -43,7 +49,7 @@ public class DXOMARK_Top_5 {
                     for (Element attachment : newsHeadlines) {
                         //String Camera = Top.getElementsByTag("a").text();
                         String href = attachment.absUrl("href");
-                        System.out.println("\n" +  "網址：" + attachment.absUrl("href")); //網址
+                        System.out.println("網址：" + attachment.absUrl("href")); //網址
                     }
                 }
             }
