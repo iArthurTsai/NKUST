@@ -19,41 +19,26 @@ import java.nio.file.Paths;
 //import java.nio.file.Path;
 //import java.nio.file.StandardCopyOption;
 
-//#row-304546280 > div > div > div > div > div > div > div:nth-child(4)
-//#row-1965244831 > div > div > div > div > div > div > div:nth-child(4) > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(1) > div.deviceName.flex-col.flex-left.flex-grow > h3 //Camera 1st
-//#row-1965244831 > div > div > div > div > div > div > div:nth-child(4) > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(1) > div.deviceScore.flex-col.flex-right //144 Score
-//#row-1965244831 > div > div > div > div > div > div > div:nth-child(8) > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(1) > div.deviceName.flex-col.flex-left.flex-grow > h3 //Selfie 1st
-//#slick-slide00 > div.rankingTab > div.selectionWrap > div:nth-child(1) > div:nth-child(1) > div.deviceName.flex-col.flex-left.flex-grow > h3
-
 public class DXOMARK_Top_5 {
     public static void main(String[] args) throws IOException {
         String home = System.getProperty("user.home"); //https://www.796t.com/post/MmNtYzI=.html
-
-        String Source = ("https://www.dxomark.com/"); //下載來源網址
-        System.out.print("\n下載來源網址：" + Source + "\n");
-
-        //String path = (home + "\\Downloads\\" + "\\");
-        String path = (home + "/Downloads/" + "/"); //for macOS
-
         try {
-            Document doc = Jsoup.connect(Source).get();
-            System.out.println(doc.title());
+            Document Dxo = Jsoup.connect("https://www.dxomark.com/").get();
+            System.out.println(Dxo.title());
 
-            Elements rankingTab = doc.getElementsByClass("rankingTab");//從doc中選擇rankingTab裡面
-            for (Element Top_5 : rankingTab) { //在rankingTab裡面抓出devices
-                Elements devices = doc.getElementsByClass("deviceName flex-col flex-left flex-grow");
-                for (Element Top : devices) { //在devices裡面抓出Device Name
-                    String Camera = Top.getElementsByTag("h3").text();
-                    System.out.println(Camera);
-                    Elements newsHeadlines = doc.select("div.rankingTab div.deviceName.flex-col.flex-left.flex-grow h3 a");
-                    for (Element attachment : newsHeadlines) {
-                        //String Camera = Top.getElementsByTag("a").text();
-                        String href = attachment.absUrl("href");
-                        System.out.println("網址：" + attachment.absUrl("href")); //網址
+            Elements rankingTab = Dxo.getElementsByClass("rankingTab");//從dxo中選擇rankingTab裡面
+            for (Element Top_5 : rankingTab) { //在rankingTab裡面抓出listElement flex-row
+                Elements listElement = Top_5.getElementsByClass("listElement flex-row");
+                for (Element Top : listElement) { //在listElement flex-row裡面抓出Devices
+                    Elements dxomark = Top.select("div.deviceName.flex-col.flex-left.flex-grow h3 a");
+                    for (Element child : dxomark) { //在Devices裡面抓出deviceName和網址
+                        String dxomarkranking = child.getElementsByTag("a").text();
+                        String dxomarkhref = child.absUrl("href");
+                        System.out.println(dxomarkranking + "\n" + "網址：" + child.absUrl("href"));
                     }
                 }
             }
-            Elements Image = doc.select("#Image1"); //封面
+            Elements Image = Dxo.select("#Image1"); //封面
             //System.out.println("封面：" + Image);
             //Element Image = doc.getElementById("Image1");
             //System.out.println("封面：" + Image);
@@ -70,12 +55,12 @@ public class DXOMARK_Top_5 {
 
             //Elements Writer = doc.select("#Label2"); //作者
             //System.out.println("作者：" + Writer);
-            Element Writer = doc.getElementById("Label2"); //作者
+            Element Writer = Dxo.getElementById("Label2"); //作者
             System.out.println("作者：" + Writer.text());
 
             //Elements ISBN = doc.select("#Label3"); //ISBN
             //System.out.println("ISBN：" + ISBN);
-            Element ISBN = doc.getElementById("Label3"); //ISBN
+            Element ISBN = Dxo.getElementById("Label3"); //ISBN
             System.out.println("ISBN：" + ISBN.text());
 
             System.out.println("Copyright © 2008-2022 DXOMARK. All rights reserved");
@@ -90,10 +75,10 @@ public class DXOMARK_Top_5 {
             System.out.println(doc1.title());
             Elements devices = doc1.getElementsByClass("nrank-b");
             for (Element Name : devices) { //在devices裡面抓出Device Name
-                Elements newsHeadlines = doc1.getElementsByClass("bfirst");
+                Elements antutu = doc1.getElementsByClass("bfirst");
                 String N = Name.getElementsByTag("li").text();
                 System.out.println(N); //網址
-                for (Element attachment : newsHeadlines) {
+                for (Element attachment : antutu) {
                     //String href = attachment.absUrl("href");
                     //System.out.println(N); //網址
                 }
