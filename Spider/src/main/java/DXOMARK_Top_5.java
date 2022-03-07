@@ -19,8 +19,6 @@ import java.nio.file.Paths;
 //import java.nio.file.Path;
 //import java.nio.file.StandardCopyOption;
 
-//#content > div:nth-child(3) > div > div > div > div.rankings.list > div.ranking-overflow-container > div > div:nth-child(5) > div
-
 public class DXOMARK_Top_5 {
     public static void main(String[] args) throws IOException {
         try {
@@ -38,6 +36,30 @@ public class DXOMARK_Top_5 {
                         String dxomarkhref = deviceName.absUrl("href");
                         System.out.println(dxomarkscore + "\n" + "網址：" + deviceName.absUrl("href"));
                     }
+                }
+            }
+
+            System.out.println("\nCopyright © 2008-2022 DXOMARK. All rights reserved");
+
+        } catch (Exception e) {
+            System.out.println("\nerror: " + e);
+        }
+
+//By Camera Score        
+//#content > div:nth-child(3) > div > div > div > div.rankings.list > div.ranking-overflow-container > div > div:nth-child(5) > div
+//row device-row
+        try {
+            Document sort_camera = Jsoup.connect("https://www.dxomark.com/smartphones/#sort-camera/device-").get();
+            System.out.println(sort_camera.title() + "\n");
+
+            Elements rankings_list = sort_camera.getElementsByClass("rankings list");//從dxo中選擇rankingTab裡面
+            for (Element list :  rankings_list) { //在rankings list裡面抓出row device-row
+                Elements device_row = list.getElementsByClass("row device-row");
+                for (Element Top : device_row) { //在row device-roww裡面抓出Devices
+                    String dxomarkscorelist = Top.getElementsByTag("span").text();
+                    //String dxomarkranking = deviceName.getElementsByTag("a").text();
+                    //String dxomarkhref = deviceName.absUrl("href");
+                    System.out.println(dxomarkscorelist + "\n");
                 }
             }
 
