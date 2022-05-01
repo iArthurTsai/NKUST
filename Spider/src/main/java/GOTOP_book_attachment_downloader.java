@@ -28,7 +28,8 @@ public class GOTOP_book_attachment_downloader {
         Scanner sc = new Scanner(System.in); //System.in is a standard input stream
         System.out.print("Enter a Book Id or URL from \"http://books.gotop.com.tw/default.aspx\" : ");
         String str = sc.next(); //reads string before the space
-        if (str.contains("http://books.gotop.com.tw/v_")) {str = str.replace("http://books.gotop.com.tw/v_", "");} //https://www.delftstack.com/zh-tw/howto/java/how-to-check-if-a-string-contains-character-in-java/#%E4%BD%BF%E7%94%A8%E5%AD%97%E4%B8%B2-contains-%E6%96%B9%E6%B3%95%E8%88%87-if-else-%E8%AA%9E%E5%8F%A5%E4%B8%80%E8%B5%B7%E4%BD%BF%E7%94%A8
+        //if (str.contains("http://books.gotop.com.tw/v_")) {str = str.replace("http://books.gotop.com.tw/v_", "");} //https://www.delftstack.com/zh-tw/howto/java/how-to-check-if-a-string-contains-character-in-java/#%E4%BD%BF%E7%94%A8%E5%AD%97%E4%B8%B2-contains-%E6%96%B9%E6%B3%95%E8%88%87-if-else-%E8%AA%9E%E5%8F%A5%E4%B8%80%E8%B5%B7%E4%BD%BF%E7%94%A8
+        str = str.replace("http://books.gotop.com.tw/v_", "");
         System.out.print("你輸入的書號：" + str); //書號 for example : AEI005900 AEI005931 AEI006600 AEI007000 ACG006200
 
         String Source = ("http://books.gotop.com.tw/download/" + str); //下載來源網址
